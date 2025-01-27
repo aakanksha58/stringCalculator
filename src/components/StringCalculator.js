@@ -10,7 +10,7 @@ export default function StringCalculator() {
     const { result, error, stringCalculation } = useCalculator()
 
     const handleInput = (event) => {
-        const inputValue = event.target.value.replace(/"/g, '');
+        const inputValue = event.target.value; 
         setUserInput(inputValue);
     };
 
@@ -30,7 +30,7 @@ export default function StringCalculator() {
                     <TextField
                         id="userInputId"
                         data-testid="userInputId"
-                        placeholder="Ex. 1,2,3 or 1,\n2,3"
+                        placeholder="Ex. 1,2,3 or 1\n2,3"
                         variant="standard"
                         onChange={handleInput}
                         value={userInput}
