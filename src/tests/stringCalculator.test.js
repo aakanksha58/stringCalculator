@@ -43,4 +43,12 @@ describe('String Calculator Component', () => {
         const result = screen.getByTestId('result-div');
         expect(result).toHaveTextContent('6');
     })
+
+    test('Handles for supporting different delimeters', () => {
+        fireEvent.change(input, { target: { value: '//;\\n1;2' } });
+        fireEvent.click(button);
+
+        const result = screen.getByTestId('result-div');
+        expect(result).toHaveTextContent('3');
+    })
 });
