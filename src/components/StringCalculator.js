@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import "./stringCalculator.css"
 import useCalculator from "../hooks/useCalculator";
+import "./stringCalculator.css"
 
 export default function StringCalculator() {
 
@@ -16,17 +17,16 @@ export default function StringCalculator() {
 
     const handleClickCalculate = () => {
         stringCalculation(userInput);
-        setUserInput("");
     };
 
     return (
-        <div>
-            <div>
-                <div>
-                    <h1 >String Calculator</h1>
+        <div className="stringcalc-container">
+            <div className="stringcalc-card">
+                <div className="stringcalc-header">
+                    <h1 className="stringcalc-header-title">String Calculator</h1>
                 </div>
-                <div>
-                    <label>Enter numbers with comma or newline separated</label>
+                <div className="stringcalc-textfield">
+                    <label className="stringcalc-textfield-label">Enter numbers with comma or newline separated</label>
                     <TextField
                         id="userInputId"
                         data-testid="userInputId"
@@ -34,21 +34,26 @@ export default function StringCalculator() {
                         variant="standard"
                         onChange={handleInput}
                         value={userInput}
+                        sx={{
+                            '& .MuiInput-underline:after': {
+                                borderBottomColor: '#4f46e5',
+                            },
+                        }}
                     />
                 </div>
-                <div >
-                    <Button variant="contained" onClick={handleClickCalculate} >Calculate Sum</Button>
+                <div className="stringcalc-button-div" >
+                    <Button variant="contained"  className="stringcalc-button" onClick={handleClickCalculate} >Calculate Sum</Button>
                 </div>
                 {result !== '' && (
-                    <div>
-                        <label >Result</label>
-                        <div data-testid="result-div" >{result}</div>
+                    <div className="stringcalc-result">
+                        <label  className="stringcalc-result-label" >Result</label>
+                        <div data-testid="result-div"  className="stringcalc-result-text">{result}</div>
                     </div>
                 )}
                 {error !== '' && (
-                    <div >
-                        <label >Error</label>
-                        <div data-testid="error-div">{error}</div>
+                    <div className="stringcalc-result">
+                        <label className="stringcalc-error-label" >Error</label>
+                        <div data-testid="error-div" className="stringcalc-error-text">{error}</div>
                     </div>
                 )}
             </div>

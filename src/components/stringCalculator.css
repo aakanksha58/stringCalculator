@@ -1,0 +1,93 @@
+.stringcalc-container {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right,#e0e7ff, #ede9fe, #fce7f3);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.stringcalc-card {
+    width: 100%;
+    max-width: 30rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow :0px 25px 50px -12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    margin-bottom: 40%;
+}
+
+.stringcalc-card:hover {
+    transform: scale(1.05);
+}
+.stringcalc-header {
+    background: linear-gradient(to right, #7c3aed, #4f46e5);
+    padding: 1.5rem;
+    text-align: center;
+}
+.stringcalc-header-title {
+    font-size: 1.875rem;
+    color: white;
+    font-weight: 800;
+    letter-spacing: -0.025rem;
+}
+
+.stringcalc-result {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: #f3e8ff;
+    border-radius: 0.5rem;
+    text-align: left;
+    padding-left: 2rem;
+  }
+  
+  .stringcalc-result-label {
+    display: block;
+    font-size: 1.075rem;
+    font-weight: 800;
+    color: #7e22ce;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stringcalc-error-text {
+    font-size: 1.125rem;
+    color: red;
+  }
+  .stringcalc-error-label {
+    display: block;
+    font-size: 1.075rem;
+    font-weight: 800;
+    color: red;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stringcalc-result-text {
+    font-size: 1.125rem;
+    color: #6b21a8;
+  }
+
+  .stringcalc-textfield {
+    text-align: left;
+    padding: 1rem 2rem 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 18px
+  }
+
+  .stringcalc-textfield-label {
+    color: #7e22ce;
+    font-weight: 800;
+    font-size: 1rem;
+  }
+
+  .stringcalc-button-div {
+    display: flex;
+    padding: 1rem 2rem 1rem 2rem;
+  }
+
+  .stringcalc-button {
+    background: #7e22ce !important;
+    color: white;
+    width: 100%;
+  }
