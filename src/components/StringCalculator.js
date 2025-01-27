@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import "./stringCalculator.css"
 import useCalculator from "../hooks/useCalculator";
 
 export default function StringCalculator() {
@@ -9,7 +10,7 @@ export default function StringCalculator() {
     const { result, error, stringCalculation } = useCalculator()
 
     const handleInput = (event) => {
-        const inputValue = event.target.value.replace(/\\n/g, "\n");
+        const inputValue = event.target.value.replace(/"/g, '');
         setUserInput(inputValue);
     };
 
@@ -31,21 +32,17 @@ export default function StringCalculator() {
                         data-testid="userInputId"
                         placeholder="Ex. 1,2,3 or 1,\n2,3"
                         variant="standard"
-                        onInput={handleInput}
-                        sx={{
-                            '& .MuiInput-underline:after': {
-                                borderBottomColor: '#4f46e5',
-                            },
-                        }}
+                        onChange={handleInput}
+                        value={userInput}
                     />
                 </div>
                 <div >
                     <Button variant="contained" onClick={handleClickCalculate} >Calculate Sum</Button>
                 </div>
                 {result !== '' && (
-                    <div data-testid="result-div">
+                    <div>
                         <label >Result</label>
-                        <div >{result}</div>
+                        <div data-testid="result-div" >{result}</div>
                     </div>
                 )}
                 {error !== '' && (
