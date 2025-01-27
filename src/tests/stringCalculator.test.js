@@ -51,4 +51,12 @@ describe('String Calculator Component', () => {
         const result = screen.getByTestId('result-div');
         expect(result).toHaveTextContent('3');
     })
+
+    test('Handles negative numbers', () => {
+        fireEvent.change(input, { target: { value: '-1,-2' } });
+        fireEvent.click(button);
+
+        const result = screen.getByTestId('error-div');
+        expect(result).toHaveTextContent('Negatives not allowed: -1,-2');
+    })
 });

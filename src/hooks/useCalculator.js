@@ -14,6 +14,12 @@ export default function useCalculator() {
         const { delimiters, sumNumbers } = extractDelimiters(stringToBeCalculated)
         validateInput(delimiters, sumNumbers)
         let numbersToBeCalculated = sumNumbers.split(new RegExp(`[${delimiters.join("")}]`)).map(Number);
+        let negativeNumbers = validateNegatives(numbersToBeCalculated)
+        if(negativeNumbers.length > 0) {
+            setError(`Negatives not allowed: ${negativeNumbers.join(",")}`)
+            setResult('')
+        }
+        else {
         let sum = numbersToBeCalculated
             .reduce((acc, num) => acc + num, 0);
         if (isNaN(sum)) {
@@ -24,6 +30,7 @@ export default function useCalculator() {
             setError('')
             setResult(sum);
         }
+    }
     };
 
     const extractDelimiters = (stringToBeCalculated) => {
@@ -48,6 +55,11 @@ export default function useCalculator() {
             setError("Please enter input in proper format")
             return
         }
+    }
+
+    const validateNegatives = (sumNumbers) => {
+        const negatives = sumNumbers.filter(n => n < 0);
+        return negatives
     }
     return { result, error, stringCalculation }
 }

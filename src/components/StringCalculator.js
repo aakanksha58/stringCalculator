@@ -48,7 +48,7 @@ export default function StringCalculator() {
                 {error !== '' && (
                     <div >
                         <label >Error</label>
-                        <div >{error}</div>
+                        <div data-testid="error-div">{error}</div>
                     </div>
                 )}
             </div>
